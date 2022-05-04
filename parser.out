@@ -1,0 +1,956 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ARRAY
+    BLANKS
+    BONUS
+    COMMENT
+    LEFT_CURLY
+    MATRIX
+    RES
+    RIGHT_CURLY
+    SIMULATANEOUS
+    SKIPBLOCK
+
+Grammar
+
+Rule 0     S' -> level
+Rule 1     level -> LEVEL IDENTIFIER ARROWSIGN
+Rule 2     level -> moveconfig SEMICOLON
+Rule 3     level -> setlevelspeed SEMICOLON
+Rule 4     level -> passlevellines SEMICOLON
+Rule 5     level -> board_assign SEMICOLON
+Rule 6     level -> piece_definition SEMICOLON
+Rule 7     level -> speed SEMICOLON
+Rule 8     level -> piececolor SEMICOLON
+Rule 9     level -> sequence_definition SEMICOLON
+Rule 10    level -> scoring SEMICOLON
+Rule 11    level -> random SEMICOLON
+Rule 12    level -> startgame SEMICOLON
+Rule 13    level -> empty
+Rule 14    setlevelspeed -> SETLEVELSPEED LEFT_BRT INT RIGHT_BRT
+Rule 15    passlevellines -> PASSLEVELLINES LEFT_BRT INT RIGHT_BRT
+Rule 16    moveconfig -> MOVECONFIG LEFT_BRT WASD RIGHT_BRT
+Rule 17    moveconfig -> MOVECONFIG LEFT_BRT ARROW RIGHT_BRT
+Rule 18    board_assign -> BOARD EQUALS INT COMMA INT
+Rule 19    piece_definition -> PIECE IDENTIFIER EQUALS matrix
+Rule 20    array -> RIGHT_SQR group_of_types LEFT_SQR
+Rule 21    matrix -> RIGHT_SQR group_of_arrays LEFT_SQR
+Rule 22    type -> INT
+Rule 23    type -> IDENTIFIER
+Rule 24    expression -> IDENTIFIER
+Rule 25    expression -> IDENTIFIER MULTIPLY INT
+Rule 26    group_of_expressions -> group_of_expressions COMMA expression
+Rule 27    group_of_expressions -> expression
+Rule 28    group_of_types -> group_of_types COMMA type
+Rule 29    group_of_types -> type
+Rule 30    group_of_arrays -> group_of_arrays COMMA array
+Rule 31    group_of_arrays -> array
+Rule 32    speed -> SPEED LEFT_BRT IDENTIFIER COMMA INT RIGHT_BRT
+Rule 33    piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA COLORNAME RIGHT_BRT
+Rule 34    piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA HEXCOLOR RIGHT_BRT
+Rule 35    sequence_definition -> SEQUENCE IDENTIFIER EQUALS array
+Rule 36    scoring -> SCORING EQUALS array
+Rule 37    random -> RANDOM LEFT_BRT IDENTIFIER RIGHT_BRT
+Rule 38    random -> RANDOM LEFT_BRT empty RIGHT_BRT
+Rule 39    startgame -> STARTGAME LEFT_BRT group_of_expressions RIGHT_BRT
+Rule 40    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ARRAY                : 
+ARROW                : 17
+ARROWSIGN            : 1
+BLANKS               : 
+BOARD                : 18
+BONUS                : 
+COLORNAME            : 33
+COMMA                : 18 26 28 30 32 33 34
+COMMENT              : 
+EQUALS               : 18 19 35 36
+HEXCOLOR             : 34
+IDENTIFIER           : 1 19 23 24 25 32 33 34 35 37
+INT                  : 14 15 18 18 22 25 32
+LEFT_BRT             : 14 15 16 17 32 33 34 37 38 39
+LEFT_CURLY           : 
+LEFT_SQR             : 20 21
+LEVEL                : 1
+MATRIX               : 
+MOVECONFIG           : 16 17
+MULTIPLY             : 25
+PASSLEVELLINES       : 15
+PIECE                : 19
+PIECECOLOR           : 33 34
+RANDOM               : 37 38
+RES                  : 
+RIGHT_BRT            : 14 15 16 17 32 33 34 37 38 39
+RIGHT_CURLY          : 
+RIGHT_SQR            : 20 21
+SCORING              : 36
+SEMICOLON            : 2 3 4 5 6 7 8 9 10 11 12
+SEQUENCE             : 35
+SETLEVELSPEED        : 14
+SIMULATANEOUS        : 
+SKIPBLOCK            : 
+SPEED                : 32
+STARTGAME            : 39
+WASD                 : 16
+error                : 
+
+Nonterminals, with rules where they appear
+
+array                : 30 31 35 36
+board_assign         : 5
+empty                : 13 38
+expression           : 26 27
+group_of_arrays      : 21 30
+group_of_expressions : 26 39
+group_of_types       : 20 28
+level                : 0
+matrix               : 19
+moveconfig           : 2
+passlevellines       : 4
+piece_definition     : 6
+piececolor           : 8
+random               : 11
+scoring              : 10
+sequence_definition  : 9
+setlevelspeed        : 3
+speed                : 7
+startgame            : 12
+type                 : 28 29
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . level
+    (1) level -> . LEVEL IDENTIFIER ARROWSIGN
+    (2) level -> . moveconfig SEMICOLON
+    (3) level -> . setlevelspeed SEMICOLON
+    (4) level -> . passlevellines SEMICOLON
+    (5) level -> . board_assign SEMICOLON
+    (6) level -> . piece_definition SEMICOLON
+    (7) level -> . speed SEMICOLON
+    (8) level -> . piececolor SEMICOLON
+    (9) level -> . sequence_definition SEMICOLON
+    (10) level -> . scoring SEMICOLON
+    (11) level -> . random SEMICOLON
+    (12) level -> . startgame SEMICOLON
+    (13) level -> . empty
+    (16) moveconfig -> . MOVECONFIG LEFT_BRT WASD RIGHT_BRT
+    (17) moveconfig -> . MOVECONFIG LEFT_BRT ARROW RIGHT_BRT
+    (14) setlevelspeed -> . SETLEVELSPEED LEFT_BRT INT RIGHT_BRT
+    (15) passlevellines -> . PASSLEVELLINES LEFT_BRT INT RIGHT_BRT
+    (18) board_assign -> . BOARD EQUALS INT COMMA INT
+    (19) piece_definition -> . PIECE IDENTIFIER EQUALS matrix
+    (32) speed -> . SPEED LEFT_BRT IDENTIFIER COMMA INT RIGHT_BRT
+    (33) piececolor -> . PIECECOLOR LEFT_BRT IDENTIFIER COMMA COLORNAME RIGHT_BRT
+    (34) piececolor -> . PIECECOLOR LEFT_BRT IDENTIFIER COMMA HEXCOLOR RIGHT_BRT
+    (35) sequence_definition -> . SEQUENCE IDENTIFIER EQUALS array
+    (36) scoring -> . SCORING EQUALS array
+    (37) random -> . RANDOM LEFT_BRT IDENTIFIER RIGHT_BRT
+    (38) random -> . RANDOM LEFT_BRT empty RIGHT_BRT
+    (39) startgame -> . STARTGAME LEFT_BRT group_of_expressions RIGHT_BRT
+    (40) empty -> .
+
+    LEVEL           shift and go to state 2
+    MOVECONFIG      shift and go to state 15
+    SETLEVELSPEED   shift and go to state 16
+    PASSLEVELLINES  shift and go to state 17
+    BOARD           shift and go to state 18
+    PIECE           shift and go to state 19
+    SPEED           shift and go to state 20
+    PIECECOLOR      shift and go to state 21
+    SEQUENCE        shift and go to state 22
+    SCORING         shift and go to state 23
+    RANDOM          shift and go to state 24
+    STARTGAME       shift and go to state 25
+    $end            reduce using rule 40 (empty -> .)
+
+    level                          shift and go to state 1
+    moveconfig                     shift and go to state 3
+    setlevelspeed                  shift and go to state 4
+    passlevellines                 shift and go to state 5
+    board_assign                   shift and go to state 6
+    piece_definition               shift and go to state 7
+    speed                          shift and go to state 8
+    piececolor                     shift and go to state 9
+    sequence_definition            shift and go to state 10
+    scoring                        shift and go to state 11
+    random                         shift and go to state 12
+    startgame                      shift and go to state 13
+    empty                          shift and go to state 14
+
+state 1
+
+    (0) S' -> level .
+
+
+
+state 2
+
+    (1) level -> LEVEL . IDENTIFIER ARROWSIGN
+
+    IDENTIFIER      shift and go to state 26
+
+
+state 3
+
+    (2) level -> moveconfig . SEMICOLON
+
+    SEMICOLON       shift and go to state 27
+
+
+state 4
+
+    (3) level -> setlevelspeed . SEMICOLON
+
+    SEMICOLON       shift and go to state 28
+
+
+state 5
+
+    (4) level -> passlevellines . SEMICOLON
+
+    SEMICOLON       shift and go to state 29
+
+
+state 6
+
+    (5) level -> board_assign . SEMICOLON
+
+    SEMICOLON       shift and go to state 30
+
+
+state 7
+
+    (6) level -> piece_definition . SEMICOLON
+
+    SEMICOLON       shift and go to state 31
+
+
+state 8
+
+    (7) level -> speed . SEMICOLON
+
+    SEMICOLON       shift and go to state 32
+
+
+state 9
+
+    (8) level -> piececolor . SEMICOLON
+
+    SEMICOLON       shift and go to state 33
+
+
+state 10
+
+    (9) level -> sequence_definition . SEMICOLON
+
+    SEMICOLON       shift and go to state 34
+
+
+state 11
+
+    (10) level -> scoring . SEMICOLON
+
+    SEMICOLON       shift and go to state 35
+
+
+state 12
+
+    (11) level -> random . SEMICOLON
+
+    SEMICOLON       shift and go to state 36
+
+
+state 13
+
+    (12) level -> startgame . SEMICOLON
+
+    SEMICOLON       shift and go to state 37
+
+
+state 14
+
+    (13) level -> empty .
+
+    $end            reduce using rule 13 (level -> empty .)
+
+
+state 15
+
+    (16) moveconfig -> MOVECONFIG . LEFT_BRT WASD RIGHT_BRT
+    (17) moveconfig -> MOVECONFIG . LEFT_BRT ARROW RIGHT_BRT
+
+    LEFT_BRT        shift and go to state 38
+
+
+state 16
+
+    (14) setlevelspeed -> SETLEVELSPEED . LEFT_BRT INT RIGHT_BRT
+
+    LEFT_BRT        shift and go to state 39
+
+
+state 17
+
+    (15) passlevellines -> PASSLEVELLINES . LEFT_BRT INT RIGHT_BRT
+
+    LEFT_BRT        shift and go to state 40
+
+
+state 18
+
+    (18) board_assign -> BOARD . EQUALS INT COMMA INT
+
+    EQUALS          shift and go to state 41
+
+
+state 19
+
+    (19) piece_definition -> PIECE . IDENTIFIER EQUALS matrix
+
+    IDENTIFIER      shift and go to state 42
+
+
+state 20
+
+    (32) speed -> SPEED . LEFT_BRT IDENTIFIER COMMA INT RIGHT_BRT
+
+    LEFT_BRT        shift and go to state 43
+
+
+state 21
+
+    (33) piececolor -> PIECECOLOR . LEFT_BRT IDENTIFIER COMMA COLORNAME RIGHT_BRT
+    (34) piececolor -> PIECECOLOR . LEFT_BRT IDENTIFIER COMMA HEXCOLOR RIGHT_BRT
+
+    LEFT_BRT        shift and go to state 44
+
+
+state 22
+
+    (35) sequence_definition -> SEQUENCE . IDENTIFIER EQUALS array
+
+    IDENTIFIER      shift and go to state 45
+
+
+state 23
+
+    (36) scoring -> SCORING . EQUALS array
+
+    EQUALS          shift and go to state 46
+
+
+state 24
+
+    (37) random -> RANDOM . LEFT_BRT IDENTIFIER RIGHT_BRT
+    (38) random -> RANDOM . LEFT_BRT empty RIGHT_BRT
+
+    LEFT_BRT        shift and go to state 47
+
+
+state 25
+
+    (39) startgame -> STARTGAME . LEFT_BRT group_of_expressions RIGHT_BRT
+
+    LEFT_BRT        shift and go to state 48
+
+
+state 26
+
+    (1) level -> LEVEL IDENTIFIER . ARROWSIGN
+
+    ARROWSIGN       shift and go to state 49
+
+
+state 27
+
+    (2) level -> moveconfig SEMICOLON .
+
+    $end            reduce using rule 2 (level -> moveconfig SEMICOLON .)
+
+
+state 28
+
+    (3) level -> setlevelspeed SEMICOLON .
+
+    $end            reduce using rule 3 (level -> setlevelspeed SEMICOLON .)
+
+
+state 29
+
+    (4) level -> passlevellines SEMICOLON .
+
+    $end            reduce using rule 4 (level -> passlevellines SEMICOLON .)
+
+
+state 30
+
+    (5) level -> board_assign SEMICOLON .
+
+    $end            reduce using rule 5 (level -> board_assign SEMICOLON .)
+
+
+state 31
+
+    (6) level -> piece_definition SEMICOLON .
+
+    $end            reduce using rule 6 (level -> piece_definition SEMICOLON .)
+
+
+state 32
+
+    (7) level -> speed SEMICOLON .
+
+    $end            reduce using rule 7 (level -> speed SEMICOLON .)
+
+
+state 33
+
+    (8) level -> piececolor SEMICOLON .
+
+    $end            reduce using rule 8 (level -> piececolor SEMICOLON .)
+
+
+state 34
+
+    (9) level -> sequence_definition SEMICOLON .
+
+    $end            reduce using rule 9 (level -> sequence_definition SEMICOLON .)
+
+
+state 35
+
+    (10) level -> scoring SEMICOLON .
+
+    $end            reduce using rule 10 (level -> scoring SEMICOLON .)
+
+
+state 36
+
+    (11) level -> random SEMICOLON .
+
+    $end            reduce using rule 11 (level -> random SEMICOLON .)
+
+
+state 37
+
+    (12) level -> startgame SEMICOLON .
+
+    $end            reduce using rule 12 (level -> startgame SEMICOLON .)
+
+
+state 38
+
+    (16) moveconfig -> MOVECONFIG LEFT_BRT . WASD RIGHT_BRT
+    (17) moveconfig -> MOVECONFIG LEFT_BRT . ARROW RIGHT_BRT
+
+    WASD            shift and go to state 50
+    ARROW           shift and go to state 51
+
+
+state 39
+
+    (14) setlevelspeed -> SETLEVELSPEED LEFT_BRT . INT RIGHT_BRT
+
+    INT             shift and go to state 52
+
+
+state 40
+
+    (15) passlevellines -> PASSLEVELLINES LEFT_BRT . INT RIGHT_BRT
+
+    INT             shift and go to state 53
+
+
+state 41
+
+    (18) board_assign -> BOARD EQUALS . INT COMMA INT
+
+    INT             shift and go to state 54
+
+
+state 42
+
+    (19) piece_definition -> PIECE IDENTIFIER . EQUALS matrix
+
+    EQUALS          shift and go to state 55
+
+
+state 43
+
+    (32) speed -> SPEED LEFT_BRT . IDENTIFIER COMMA INT RIGHT_BRT
+
+    IDENTIFIER      shift and go to state 56
+
+
+state 44
+
+    (33) piececolor -> PIECECOLOR LEFT_BRT . IDENTIFIER COMMA COLORNAME RIGHT_BRT
+    (34) piececolor -> PIECECOLOR LEFT_BRT . IDENTIFIER COMMA HEXCOLOR RIGHT_BRT
+
+    IDENTIFIER      shift and go to state 57
+
+
+state 45
+
+    (35) sequence_definition -> SEQUENCE IDENTIFIER . EQUALS array
+
+    EQUALS          shift and go to state 58
+
+
+state 46
+
+    (36) scoring -> SCORING EQUALS . array
+    (20) array -> . RIGHT_SQR group_of_types LEFT_SQR
+
+    RIGHT_SQR       shift and go to state 60
+
+    array                          shift and go to state 59
+
+state 47
+
+    (37) random -> RANDOM LEFT_BRT . IDENTIFIER RIGHT_BRT
+    (38) random -> RANDOM LEFT_BRT . empty RIGHT_BRT
+    (40) empty -> .
+
+    IDENTIFIER      shift and go to state 61
+    RIGHT_BRT       reduce using rule 40 (empty -> .)
+
+    empty                          shift and go to state 62
+
+state 48
+
+    (39) startgame -> STARTGAME LEFT_BRT . group_of_expressions RIGHT_BRT
+    (26) group_of_expressions -> . group_of_expressions COMMA expression
+    (27) group_of_expressions -> . expression
+    (24) expression -> . IDENTIFIER
+    (25) expression -> . IDENTIFIER MULTIPLY INT
+
+    IDENTIFIER      shift and go to state 65
+
+    group_of_expressions           shift and go to state 63
+    expression                     shift and go to state 64
+
+state 49
+
+    (1) level -> LEVEL IDENTIFIER ARROWSIGN .
+
+    $end            reduce using rule 1 (level -> LEVEL IDENTIFIER ARROWSIGN .)
+
+
+state 50
+
+    (16) moveconfig -> MOVECONFIG LEFT_BRT WASD . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 66
+
+
+state 51
+
+    (17) moveconfig -> MOVECONFIG LEFT_BRT ARROW . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 67
+
+
+state 52
+
+    (14) setlevelspeed -> SETLEVELSPEED LEFT_BRT INT . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 68
+
+
+state 53
+
+    (15) passlevellines -> PASSLEVELLINES LEFT_BRT INT . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 69
+
+
+state 54
+
+    (18) board_assign -> BOARD EQUALS INT . COMMA INT
+
+    COMMA           shift and go to state 70
+
+
+state 55
+
+    (19) piece_definition -> PIECE IDENTIFIER EQUALS . matrix
+    (21) matrix -> . RIGHT_SQR group_of_arrays LEFT_SQR
+
+    RIGHT_SQR       shift and go to state 72
+
+    matrix                         shift and go to state 71
+
+state 56
+
+    (32) speed -> SPEED LEFT_BRT IDENTIFIER . COMMA INT RIGHT_BRT
+
+    COMMA           shift and go to state 73
+
+
+state 57
+
+    (33) piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER . COMMA COLORNAME RIGHT_BRT
+    (34) piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER . COMMA HEXCOLOR RIGHT_BRT
+
+    COMMA           shift and go to state 74
+
+
+state 58
+
+    (35) sequence_definition -> SEQUENCE IDENTIFIER EQUALS . array
+    (20) array -> . RIGHT_SQR group_of_types LEFT_SQR
+
+    RIGHT_SQR       shift and go to state 60
+
+    array                          shift and go to state 75
+
+state 59
+
+    (36) scoring -> SCORING EQUALS array .
+
+    SEMICOLON       reduce using rule 36 (scoring -> SCORING EQUALS array .)
+
+
+state 60
+
+    (20) array -> RIGHT_SQR . group_of_types LEFT_SQR
+    (28) group_of_types -> . group_of_types COMMA type
+    (29) group_of_types -> . type
+    (22) type -> . INT
+    (23) type -> . IDENTIFIER
+
+    INT             shift and go to state 78
+    IDENTIFIER      shift and go to state 79
+
+    group_of_types                 shift and go to state 76
+    type                           shift and go to state 77
+
+state 61
+
+    (37) random -> RANDOM LEFT_BRT IDENTIFIER . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 80
+
+
+state 62
+
+    (38) random -> RANDOM LEFT_BRT empty . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 81
+
+
+state 63
+
+    (39) startgame -> STARTGAME LEFT_BRT group_of_expressions . RIGHT_BRT
+    (26) group_of_expressions -> group_of_expressions . COMMA expression
+
+    RIGHT_BRT       shift and go to state 82
+    COMMA           shift and go to state 83
+
+
+state 64
+
+    (27) group_of_expressions -> expression .
+
+    RIGHT_BRT       reduce using rule 27 (group_of_expressions -> expression .)
+    COMMA           reduce using rule 27 (group_of_expressions -> expression .)
+
+
+state 65
+
+    (24) expression -> IDENTIFIER .
+    (25) expression -> IDENTIFIER . MULTIPLY INT
+
+    RIGHT_BRT       reduce using rule 24 (expression -> IDENTIFIER .)
+    COMMA           reduce using rule 24 (expression -> IDENTIFIER .)
+    MULTIPLY        shift and go to state 84
+
+
+state 66
+
+    (16) moveconfig -> MOVECONFIG LEFT_BRT WASD RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 16 (moveconfig -> MOVECONFIG LEFT_BRT WASD RIGHT_BRT .)
+
+
+state 67
+
+    (17) moveconfig -> MOVECONFIG LEFT_BRT ARROW RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 17 (moveconfig -> MOVECONFIG LEFT_BRT ARROW RIGHT_BRT .)
+
+
+state 68
+
+    (14) setlevelspeed -> SETLEVELSPEED LEFT_BRT INT RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 14 (setlevelspeed -> SETLEVELSPEED LEFT_BRT INT RIGHT_BRT .)
+
+
+state 69
+
+    (15) passlevellines -> PASSLEVELLINES LEFT_BRT INT RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 15 (passlevellines -> PASSLEVELLINES LEFT_BRT INT RIGHT_BRT .)
+
+
+state 70
+
+    (18) board_assign -> BOARD EQUALS INT COMMA . INT
+
+    INT             shift and go to state 85
+
+
+state 71
+
+    (19) piece_definition -> PIECE IDENTIFIER EQUALS matrix .
+
+    SEMICOLON       reduce using rule 19 (piece_definition -> PIECE IDENTIFIER EQUALS matrix .)
+
+
+state 72
+
+    (21) matrix -> RIGHT_SQR . group_of_arrays LEFT_SQR
+    (30) group_of_arrays -> . group_of_arrays COMMA array
+    (31) group_of_arrays -> . array
+    (20) array -> . RIGHT_SQR group_of_types LEFT_SQR
+
+    RIGHT_SQR       shift and go to state 60
+
+    group_of_arrays                shift and go to state 86
+    array                          shift and go to state 87
+
+state 73
+
+    (32) speed -> SPEED LEFT_BRT IDENTIFIER COMMA . INT RIGHT_BRT
+
+    INT             shift and go to state 88
+
+
+state 74
+
+    (33) piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA . COLORNAME RIGHT_BRT
+    (34) piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA . HEXCOLOR RIGHT_BRT
+
+    COLORNAME       shift and go to state 89
+    HEXCOLOR        shift and go to state 90
+
+
+state 75
+
+    (35) sequence_definition -> SEQUENCE IDENTIFIER EQUALS array .
+
+    SEMICOLON       reduce using rule 35 (sequence_definition -> SEQUENCE IDENTIFIER EQUALS array .)
+
+
+state 76
+
+    (20) array -> RIGHT_SQR group_of_types . LEFT_SQR
+    (28) group_of_types -> group_of_types . COMMA type
+
+    LEFT_SQR        shift and go to state 91
+    COMMA           shift and go to state 92
+
+
+state 77
+
+    (29) group_of_types -> type .
+
+    LEFT_SQR        reduce using rule 29 (group_of_types -> type .)
+    COMMA           reduce using rule 29 (group_of_types -> type .)
+
+
+state 78
+
+    (22) type -> INT .
+
+    LEFT_SQR        reduce using rule 22 (type -> INT .)
+    COMMA           reduce using rule 22 (type -> INT .)
+
+
+state 79
+
+    (23) type -> IDENTIFIER .
+
+    LEFT_SQR        reduce using rule 23 (type -> IDENTIFIER .)
+    COMMA           reduce using rule 23 (type -> IDENTIFIER .)
+
+
+state 80
+
+    (37) random -> RANDOM LEFT_BRT IDENTIFIER RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 37 (random -> RANDOM LEFT_BRT IDENTIFIER RIGHT_BRT .)
+
+
+state 81
+
+    (38) random -> RANDOM LEFT_BRT empty RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 38 (random -> RANDOM LEFT_BRT empty RIGHT_BRT .)
+
+
+state 82
+
+    (39) startgame -> STARTGAME LEFT_BRT group_of_expressions RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 39 (startgame -> STARTGAME LEFT_BRT group_of_expressions RIGHT_BRT .)
+
+
+state 83
+
+    (26) group_of_expressions -> group_of_expressions COMMA . expression
+    (24) expression -> . IDENTIFIER
+    (25) expression -> . IDENTIFIER MULTIPLY INT
+
+    IDENTIFIER      shift and go to state 65
+
+    expression                     shift and go to state 93
+
+state 84
+
+    (25) expression -> IDENTIFIER MULTIPLY . INT
+
+    INT             shift and go to state 94
+
+
+state 85
+
+    (18) board_assign -> BOARD EQUALS INT COMMA INT .
+
+    SEMICOLON       reduce using rule 18 (board_assign -> BOARD EQUALS INT COMMA INT .)
+
+
+state 86
+
+    (21) matrix -> RIGHT_SQR group_of_arrays . LEFT_SQR
+    (30) group_of_arrays -> group_of_arrays . COMMA array
+
+    LEFT_SQR        shift and go to state 95
+    COMMA           shift and go to state 96
+
+
+state 87
+
+    (31) group_of_arrays -> array .
+
+    LEFT_SQR        reduce using rule 31 (group_of_arrays -> array .)
+    COMMA           reduce using rule 31 (group_of_arrays -> array .)
+
+
+state 88
+
+    (32) speed -> SPEED LEFT_BRT IDENTIFIER COMMA INT . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 97
+
+
+state 89
+
+    (33) piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA COLORNAME . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 98
+
+
+state 90
+
+    (34) piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA HEXCOLOR . RIGHT_BRT
+
+    RIGHT_BRT       shift and go to state 99
+
+
+state 91
+
+    (20) array -> RIGHT_SQR group_of_types LEFT_SQR .
+
+    SEMICOLON       reduce using rule 20 (array -> RIGHT_SQR group_of_types LEFT_SQR .)
+    LEFT_SQR        reduce using rule 20 (array -> RIGHT_SQR group_of_types LEFT_SQR .)
+    COMMA           reduce using rule 20 (array -> RIGHT_SQR group_of_types LEFT_SQR .)
+
+
+state 92
+
+    (28) group_of_types -> group_of_types COMMA . type
+    (22) type -> . INT
+    (23) type -> . IDENTIFIER
+
+    INT             shift and go to state 78
+    IDENTIFIER      shift and go to state 79
+
+    type                           shift and go to state 100
+
+state 93
+
+    (26) group_of_expressions -> group_of_expressions COMMA expression .
+
+    RIGHT_BRT       reduce using rule 26 (group_of_expressions -> group_of_expressions COMMA expression .)
+    COMMA           reduce using rule 26 (group_of_expressions -> group_of_expressions COMMA expression .)
+
+
+state 94
+
+    (25) expression -> IDENTIFIER MULTIPLY INT .
+
+    RIGHT_BRT       reduce using rule 25 (expression -> IDENTIFIER MULTIPLY INT .)
+    COMMA           reduce using rule 25 (expression -> IDENTIFIER MULTIPLY INT .)
+
+
+state 95
+
+    (21) matrix -> RIGHT_SQR group_of_arrays LEFT_SQR .
+
+    SEMICOLON       reduce using rule 21 (matrix -> RIGHT_SQR group_of_arrays LEFT_SQR .)
+
+
+state 96
+
+    (30) group_of_arrays -> group_of_arrays COMMA . array
+    (20) array -> . RIGHT_SQR group_of_types LEFT_SQR
+
+    RIGHT_SQR       shift and go to state 60
+
+    array                          shift and go to state 101
+
+state 97
+
+    (32) speed -> SPEED LEFT_BRT IDENTIFIER COMMA INT RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 32 (speed -> SPEED LEFT_BRT IDENTIFIER COMMA INT RIGHT_BRT .)
+
+
+state 98
+
+    (33) piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA COLORNAME RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 33 (piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA COLORNAME RIGHT_BRT .)
+
+
+state 99
+
+    (34) piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA HEXCOLOR RIGHT_BRT .
+
+    SEMICOLON       reduce using rule 34 (piececolor -> PIECECOLOR LEFT_BRT IDENTIFIER COMMA HEXCOLOR RIGHT_BRT .)
+
+
+state 100
+
+    (28) group_of_types -> group_of_types COMMA type .
+
+    LEFT_SQR        reduce using rule 28 (group_of_types -> group_of_types COMMA type .)
+    COMMA           reduce using rule 28 (group_of_types -> group_of_types COMMA type .)
+
+
+state 101
+
+    (30) group_of_arrays -> group_of_arrays COMMA array .
+
+    LEFT_SQR        reduce using rule 30 (group_of_arrays -> group_of_arrays COMMA array .)
+    COMMA           reduce using rule 30 (group_of_arrays -> group_of_arrays COMMA array .)
+

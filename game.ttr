@@ -1,0 +1,49 @@
+/* This is a sample Tetris game in our language. You can run the lexer on it (read report for detailed instructions) */
+level l1 {
+    /* Hello */
+    moveconfig(ASWD);
+    board = 8, 8;
+    setlevelspeed(1);
+    passlevelscore(150);
+    
+    piece p1 = [[1, 1, 0], [0, 1, 0]];
+    piece p4 = [[1, 0, 1, 1], [0, 1, 0, 0], [0, 0, 1, 0]];
+    piece p1_and_p4 = simultaneous(p1, p4);
+    
+    speed(p1, 1);
+    speed(p4, 5);
+    skipblock(p1_and_p4, 10);
+    piececolor(p1, 'blue');
+    piececolor(p4, #1AFFa1);
+    bonus(p1, +2); /* Multiplier */
+
+    sequence s1 = [p1, p2, p3, p4];
+    sequence s2 = [p1, p4, p3, p2];
+    random(s1);
+    
+    /* Scoring */
+    scoring = [100, 250, 500, 1200];
+    startgame(s1 * 10, s2 * 3, s3, s4 * 3);
+}
+
+level l2 {
+    /* This is level 2*/
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+    
+    

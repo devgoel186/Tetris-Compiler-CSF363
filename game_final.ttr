@@ -1,0 +1,58 @@
+level l1>
+    board = 22, 20;
+    setlevelspeed(5);
+    
+    
+    piece p1 = [[1, 1, 1, 1]];
+    piece p2 = [[1, 1, 0], [0, 1, 1]];
+    piece p3 = [[0, 1, 1], [1, 1, 0]];
+    piece p4 = [[1, 1], [1, 1]];
+    piece p5 = [[1, 0, 0, 0], [1, 1, 1, 1]];
+    piece p6 = [[0, 0, 0, 1], [1, 1, 1, 1]];
+    piece p7 = [[1, 0, 1], [0, 1, 0], [1, 0, 1]];
+    
+    
+    speed(p4, 5);
+    speed(p1, 1);
+    piececolor(p1, 'blue');
+    piececolor(p2, 'red');
+    piececolor(p3, 'green');
+    piececolor(p4, 'orange');
+    piececolor(p5, 'red');
+    piececolor(p6, 'orange');
+    piececolor(p7, 'blue');
+
+    sequence s2 = [p1, p3, p2, p4, p7, p7, p7, p6, p5];
+    sequence s1 = [p1, p5, p2, p3];
+
+    random(s1);
+    
+    scoring = [100, 250, 500, 1200];
+    startgame(s2 * 20, s1 * 20);
+
+level l2>
+    board = 22, 20;
+    setlevelspeed(10);
+    
+    piece p2 = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 0], [1, 0, 0]];
+    piece p3 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]];
+    piece p4 = [[1, 1], [0, 1], [1, 1], [1, 1]];
+    piece p5 = [[1]];
+    piece p6 = [[1, 1, 0, 1, 1], [0, 1, 1, 1, 0], [0, 0, 1, 0, 0], [0, 0, 1, 0, 0]];
+    
+    
+    speed(p4, 5);
+    speed(p1, 1);
+    piececolor(p1, 'blue');
+    piececolor(p2, 'red');
+    piececolor(p3, 'green');
+    piececolor(p4, 'orange');
+    piececolor(p5, 'red');
+    piececolor(p6, 'orange');
+
+    sequence s2 = [p3, p4];
+    sequence s1 = [p1, p5, p2, p3];
+    random(s1);
+    
+    scoring = [100, 250, 500, 1200];
+    startgame(s1 * 20, s2 * 12, s1 * 5, s2 * 10);
