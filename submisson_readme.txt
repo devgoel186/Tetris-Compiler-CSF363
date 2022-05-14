@@ -10,3 +10,19 @@ To test, open a terminal (or conda prompt):
 python tetris_lexer.py
 
 It will wait for filename input, provide - game.ttr
+
+------------------------------------------------------------
+
+In our second stage submission we have pushed the following:
+1. tetris_compiler.py
+2. Level.py
+3. game_config.py
+4. game.py
+5. game_final.ttr
+
+PDF Report
+
+To run:
+python tetris_compiler.py, that's it!
+
+If you change game file, change the same in the python file (see report)
